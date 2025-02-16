@@ -8,7 +8,13 @@ def main():
     word_count = count_words(file_text)
     listed_dict = list_it(letter_dictionary)
     sorted_d = sort_dict(listed_dict)
-    report_alphabet(sorted_d, word_count)
+    
+    print(f"--- Begin report of {path_to_file} ---")
+    print(f"{word_count} words found in document")
+    
+    report_alphabet(sorted_d)
+    
+    print("--- End report ---")
     
     #print(f"word count:  {word_count}")
     
@@ -42,13 +48,10 @@ def sort_dict(list_dict):
     #sorted_dictionary.sort(key=str.isalpha(), reverse=False)       
     return sorted_dictionary
 
-def report_alphabet(sorted_dict, word_count):
-    print("--- Begin report of books/frankenstein.txt ---")
-    print(f"{word_count} words found in document")
+def report_alphabet(sorted_dict):
     for letter in sorted_dict:
         key = next(iter(letter))
         print(f"The '{key}' character was found {letter[key]} times")
-    print("--- End report ---")
     return
     
 def count_characters(input_string):
